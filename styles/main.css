@@ -91,4 +91,25 @@ h1, h2, h3, h4, h5, h6, p {
 .toggle {
   margin-right: 15px;
 }
+
+#time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ffffff;
+}
+
+#a-nol {
+  display: block;
+}
+
+#b-nol {
+  display: block;
+  margin-left: 7px;
+}
+
+#c-nol {
+  display: block;
+  margin-left: 7px;
+}
 /*# sourceMappingURL=main.css.map */
