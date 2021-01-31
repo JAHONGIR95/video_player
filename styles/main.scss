@@ -13,26 +13,35 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .player{
-    width: 700px;
+    width: 710px;
     height: 400px;
     position: relative;
+    overflow: hidden;
+
+    &:hover &__controls{
+        transform: translateY(0);
+        opacity: 1;
+    }
 
     .viewer{
         width: 100%;
         height: 100%;
-        position: absolute;
+        // position: absolute;
     }
 
     &__controls{
         position: absolute;
-        bottom: 10px;
-        z-index: 5;
-        right: 0;
-        left: 0;
-        margin: auto;
+        bottom: 0px;
+        z-index: 5;   
         width: 100%;
-        margin-right: auto;
-        margin-left: auto;
+        background-color: rgba(0, 0, 0, .4);
+        box-sizing: border-box;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        transition: all ease .5s;
+        transform: translateY(61px);
+        opacity: .4;
     }
     .progress{
         display: flex;
@@ -43,5 +52,23 @@ h1, h2, h3, h4, h5, h6, p{
             margin-right: auto;
         }
     }
+
+    .control-tools{
+        width: 96%;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+}
+#volume-icon{
+    width: 15px;
+    height: 15px;
+}
+
+.toggle{
+    margin-right: 15px;
 }
 

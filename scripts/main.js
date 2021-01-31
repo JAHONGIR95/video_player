@@ -5,29 +5,50 @@ var progressBar = document.querySelector('.progress__filled');
 var toggle = document.querySelector('.toggle');
 var skipButtons = document.querySelectorAll('[data-skip]');
 var ranges = document.querySelectorAll('.player__slider');
+var volumeIcon = document.querySelector('#volume-icon');
 
 
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
     video.src = './images/video.mp4';
 })
 
-function togglePlay(){
+function togglePlay() {
     var method = video.paused ? 'play' : 'pause';
     video[method]();
 }
 
-function updateButton(){
+function updateButton() {
     var icon = video.paused ? "▶" : "⏯";
     toggle.textContent = icon;
 }
 
-function skip(){
+function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
 }
 
-function range(){
+function volumeIconSwitcher(volumeRate) {
+
+    switch (true) {
+        case (volumeRate >= 0.8):
+            volumeIcon.setAttribute('src', './images/volume-up-interface-symbol-1.svg');
+            break;
+        case (volumeRate < 0.8 && volumeRate >= 0.5):
+            volumeIcon.setAttribute('src', './images/volume-up-interface-symbol-2.svg');
+            break;
+        case (volumeRate < 0.5 && volumeRate >= 0.2):
+            volumeIcon.setAttribute('src', './images/volume-up-interface-symbol-3.svg');
+            break;
+        case (volumeRate < 0.2):
+            volumeIcon.setAttribute('src', './images/volume-up-interface-symbol-4.svg');
+            break;
+        default:
+            volumeIcon.setAttribute('src', './images/volume-up-interface-symbol-1.svg');
+    }
+}
+
+function range() {
     video[this.name] = this.value;
-    // console.log(this.value);
+    volumeIconSwitcher(video.volume);
     // console.log(this.name);
 }
 
