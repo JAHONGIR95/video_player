@@ -13,10 +13,35 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 .player{
-    width: 600px;
+    width: 700px;
     height: 400px;
+    position: relative;
+
+    .viewer{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &__controls{
+        position: absolute;
+        bottom: 10px;
+        z-index: 5;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .progress{
+        display: flex;
+
+        #progress__time{
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }
-.viewer{
-    width: 100%;
-    height: 100%;
-}
+
