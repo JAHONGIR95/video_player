@@ -40,11 +40,12 @@ h1, h2, h3, h4, h5, h6, p{
         display: flex;
         flex-direction: column;
         transition: all ease .5s;
-        transform: translateY(61px);
+        transform: translateY(67px);
         opacity: .4;
     }
     .progress{
         display: flex;
+        margin-bottom: 4px;
 
         #progress__time{
             width: 96%;
@@ -57,11 +58,15 @@ h1, h2, h3, h4, h5, h6, p{
         width: 96%;
         display: flex;
         align-items: center;
-        // justify-content: space-between;
+        justify-content: space-between;
         margin-right: auto;
         margin-left: auto;
     }
 }
+.volume-area{
+    margin-right: 15px;
+}
+
 #volume-icon{
     width: 15px;
     height: 15px;
@@ -74,6 +79,7 @@ h1, h2, h3, h4, h5, h6, p{
 #time{
     display: flex;
     color: #ffffff;
+    margin-right: 15px;
 }
 
 #a-nol{
@@ -89,4 +95,18 @@ h1, h2, h3, h4, h5, h6, p{
     display: block;
     margin-left: 7px;
 }
+
+.full-screen{
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-left: 15px;
+}
+
+.right-tools{
+    display: flex;
+    align-items: center;
+
+}
+
 

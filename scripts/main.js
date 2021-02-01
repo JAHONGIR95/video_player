@@ -1,26 +1,40 @@
 var player = document.querySelector('.player');
 var video = document.querySelector('.viewer');
 var progress = document.querySelector('.progress');
-var progressBar = document.querySelector('.progress__filled');
+var progressBar = document.querySelector('#progress__time');
 var toggle = document.querySelector('.toggle');
 var skipButtons = document.querySelectorAll('[data-skip]');
 var ranges = document.querySelectorAll('.player__slider');
 var volumeIcon = document.querySelector('#volume-icon');
 var soat = document.querySelector('#time');
+// var currentTimeFinder = document.querySelector('#current-time');
 
 
 
 window.addEventListener('load', function () {
     video.src = './images/video.mp4';
+    progressBar.value = 0;
 })
+
+function videoCurrentPosition(){
+    progressBar.value = (video.currentTime * 100) / video.duration;
+    currentTimeFinder.value = (progressBar.value * video.duration) / 100;
+    // timeMetr(Math.round(currentTimeFinder.value));
+    // console.log(currentTimeFinder.value);
+}
 
 function togglePlay() {
     var method = video.paused ? 'play' : 'pause';
     video[method]();
     timeMetr(Math.round(video.duration));
-    console.log(video.currentTime);
+    // console.log(video.currentTime);
+    videoCurrentPosition()
     
 }
+
+setInterval(function(){
+    videoCurrentPosition()
+}, 1000)
 
 function updateButton() {
     var icon = video.paused ? "▶" : "⏯";
@@ -66,6 +80,7 @@ function timeMetr(time){
     c = time
     
     soat.innerHTML = `<span id="a-nol">0</span> ${a} : <span id="b-nol"> 0</span> ${b} : <span id="c-nol"> 0</span> ${c}`;
+    currentTimeFinder.innerHTML = `<span id="a-nol">0</span> ${a} : <span id="b-nol"> 0</span> ${b} : <span id="c-nol"> 0</span> ${c}`;
 
     if(a >= 10){
         document.querySelector('#a-nol').style.display = 'none';
@@ -104,3 +119,24 @@ ranges.forEach(item => {
     item.addEventListener('mouseover', range);
 })
 
+progressBar.addEventListener('change', function(){
+    video.currentTime = (progressBar.value * video.duration) / 100; 
+})
+
+var fullScreen =  document.querySelector('.full-screen');
+
+function openFullscreen() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { /* Safari */
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE11 */
+      video.msRequestFullscreen();
+    }
+  }
+
+fullScreen.addEventListener('click', openFullscreen)
+
+window.addEventListener('keypress', function(e){
+    console.log(e);
+})

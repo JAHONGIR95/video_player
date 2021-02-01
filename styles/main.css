@@ -54,8 +54,8 @@ h1, h2, h3, h4, h5, h6, p {
           flex-direction: column;
   -webkit-transition: all ease .5s;
   transition: all ease .5s;
-  -webkit-transform: translateY(61px);
-          transform: translateY(61px);
+  -webkit-transform: translateY(67px);
+          transform: translateY(67px);
   opacity: .4;
 }
 
@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6, p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 4px;
 }
 
 .player .progress #progress__time {
@@ -79,8 +80,15 @@ h1, h2, h3, h4, h5, h6, p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-right: auto;
   margin-left: auto;
+}
+
+.volume-area {
+  margin-right: 15px;
 }
 
 #volume-icon {
@@ -97,6 +105,7 @@ h1, h2, h3, h4, h5, h6, p {
   display: -ms-flexbox;
   display: flex;
   color: #ffffff;
+  margin-right: 15px;
 }
 
 #a-nol {
@@ -111,5 +120,21 @@ h1, h2, h3, h4, h5, h6, p {
 #c-nol {
   display: block;
   margin-left: 7px;
+}
+
+.full-screen {
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+}
+
+.right-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=main.css.map */
